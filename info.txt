@@ -1,0 +1,12 @@
+* Example of service consumption with oData v2/v4:
+http://localhost:3000/sap/opu/odata/sap/API_BUSINESS_PARTNER/A_BusinessPartnerAddress
+http://localhost:3000/v2/sap/opu/odata/sap/API_BUSINESS_PARTNER/A_BusinessPartnerAddress
+
+* Check package dependencies info and other stuff related to the SAP Cloud SDK:
+npm info @sap/cloud-sdk-vdm-business-partner-service
+
+* Check request entities process on the terminal with Node CLI and SAP Cloud SDK:
+- node
+- const BusinessPartnerAddress = require('@sap/cloud-sdk-vdm-business-partner-service').BusinessPartnerAddress
+- BusinessPartnerAddress.requestBuilder().getAll().select(BusinessPartnerAddress.BUSINESS_PARTNER, BusinessPartnerAddress.ADDRESS_ID, BusinessPartnerAddress.CITY_NAME).execute({url:'http://localhost:3011/v2'}).then(xs => xs.map(x => x.cityName)).then(console.log)
+
